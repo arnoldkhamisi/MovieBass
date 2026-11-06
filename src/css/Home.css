@@ -1,90 +1,252 @@
-.home {
-  padding: 2rem 0;
+.home-netflix {
   width: 100%;
+  min-height: 100vh;
+  background-color: #141414;
+  color: #ffffff;
+}
+
+/* Billboard / Hero */
+.netflix-billboard {
+  position: relative;
+  width: 100%;
+  min-height: 75vh;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 4rem 3rem 4rem;
   box-sizing: border-box;
 }
 
-.search-form {
-  max-width: 600px;
-  margin: 0 auto 2rem;
+.billboard-content {
+  position: relative;
+  max-width: 720px;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.billboard-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #dddddd;
+}
+
+.n-logo {
+  background: var(--primary, #ff6b00);
+  color: #ffffff;
+  font-weight: 900;
+  padding: 0.2rem 0.55rem;
+  border-radius: 3px;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 8px rgba(255, 107, 0, 0.4);
+}
+
+.billboard-title {
+  font-size: 3.4rem;
+  font-weight: 900;
+  line-height: 1.1;
+  margin: 0;
+  color: #ffffff;
+  text-shadow: 2px 4px 14px rgba(0, 0, 0, 0.9);
+  letter-spacing: 0.5px;
+}
+
+.billboard-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.billboard-meta .match-score {
+  color: #ff9d42;
+  font-weight: 800;
+}
+
+.billboard-meta .year {
+  color: #cccccc;
+}
+
+.billboard-meta .maturity,
+.billboard-meta .quality {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.15rem 0.5rem;
+  font-size: 0.75rem;
+  border-radius: 3px;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.billboard-overview {
+  font-size: 1.1rem;
+  line-height: 1.55;
+  color: #e5e5e5;
+  margin: 0;
+  text-shadow: 1px 2px 6px rgba(0, 0, 0, 0.9);
+}
+
+.billboard-actions {
   display: flex;
   gap: 1rem;
-  padding: 0 1rem;
+  margin-top: 0.5rem;
+}
+
+/* Home Content Container */
+.home-content-container {
+  max-width: 1350px;
+  margin: 0 auto;
+  padding: 2rem 2rem 5rem;
   box-sizing: border-box;
 }
 
-.search-input {
+/* Search Bar */
+.netflix-search-bar {
+  max-width: 650px;
+  margin: 0 auto 2.5rem;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.netflix-search-input {
   flex: 1;
-  padding: 0.75rem 1rem;
-  border: none;
-  border-radius: 4px;
-  background-color: #333;
-  color: white;
+  padding: 0.85rem 1.25rem;
+  border: 1px solid #333333;
+  border-radius: 6px;
+  background-color: #1f1f1f;
+  color: #ffffff;
   font-size: 1rem;
-}
-
-.search-input:focus {
   outline: none;
-  box-shadow: 0 0 0 2px #666;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.search-button {
-  padding: 0.75rem 1.5rem;
-  background-color: #e50914;
-  color: white;
-  border-radius: 4px;
-  font-weight: 500;
-  transition: background-color 0.2s;
-  white-space: nowrap;
+.netflix-search-input:focus {
+  border-color: var(--primary, #ff6b00);
+  box-shadow: 0 0 12px rgba(255, 107, 0, 0.4);
 }
 
-.search-button:hover {
-  background-color: #f40612;
-}
-
-.clear-button {
-  padding: 0.75rem 1.5rem;
-  background-color: #666;
-  color: white;
-  border-radius: 4px;
-  font-weight: 500;
-  transition: background-color 0.2s;
-  white-space: nowrap;
+.netflix-search-btn {
+  padding: 0.85rem 1.8rem;
+  background-color: var(--primary, #ff6b00);
+  color: #ffffff;
   border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 1rem;
   cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(255, 107, 0, 0.3);
 }
 
-.clear-button:hover {
-  background-color: #888;
+.netflix-search-btn:hover {
+  background-color: var(--primary-hover, #ff7e1a);
+  transform: scale(1.02);
+  box-shadow: 0 6px 16px rgba(255, 107, 0, 0.5);
 }
 
+.netflix-clear-btn {
+  padding: 0.85rem 1.25rem;
+  background-color: #333333;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
 
-@media (max-width: 639px) {
-  .home {
-    padding: 1rem 0;
-  }
+.netflix-clear-btn:hover {
+  background-color: #444444;
+}
 
-  .search-form {
-    margin-bottom: 1rem;
-  }
+/* Category Tabs */
+.netflix-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  justify-content: center;
+}
+
+.netflix-tab-btn {
+  padding: 0.65rem 2rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #cccccc;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
+}
+
+.netflix-tab-btn:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+.netflix-tab-btn.active {
+  background-color: var(--primary, #ff6b00);
+  color: #ffffff;
+  border-color: var(--primary, #ff6b00);
+  box-shadow: 0 0 16px rgba(255, 107, 0, 0.45);
+}
+
+/* Section Shelf */
+.netflix-section {
+  margin-bottom: 3.5rem;
+}
+
+.shelf-title {
+  font-size: 1.7rem;
+  font-weight: 800;
+  margin: 0 0 1.25rem 0;
+  color: #ffffff;
+  letter-spacing: 0.3px;
 }
 
 .movies-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1.5rem;
-  padding: 1rem;
   width: 100%;
-  box-sizing: border-box;
 }
 
 .no-results {
   text-align: center;
   padding: 4rem 2rem;
-  color: #999;
+  color: #888888;
+  font-size: 1.1rem;
 }
 
-.no-results p {
-  font-size: 1.2rem;
-  margin: 0;
+@media (max-width: 768px) {
+  .netflix-billboard {
+    min-height: 60vh;
+    padding: 3rem 1.5rem 2rem;
+  }
+
+  .billboard-title {
+    font-size: 2.3rem;
+  }
+
+  .billboard-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .netflix-search-bar {
+    flex-direction: column;
+  }
+
+  .movies-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem;
+  }
 }

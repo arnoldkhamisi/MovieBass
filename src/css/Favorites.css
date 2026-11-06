@@ -1,52 +1,48 @@
-.favorites {
-  padding: 2rem;
+.netflix-favorites-page {
   width: 100%;
-  box-sizing: border-box;
+  min-height: 80vh;
+  padding: 3.5rem 0;
+  background-color: #141414;
 }
 
-.favorites h2 {
-  margin-bottom: 2rem;
-  text-align: center;
-  font-size: 2.5rem;
+.favorites-heading {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin: 0 0 0.5rem 0;
   color: #ffffff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.5px;
 }
 
-.favorites-empty {
+.favorites-subheading {
+  font-size: 1.1rem;
+  color: #999999;
+  margin: 0 0 2.5rem 0;
+}
+
+.favorites-empty-netflix {
   text-align: center;
-  padding: 4rem 2rem;
-  background-color: rgba(255, 255, 255, 0.05);
+  padding: 5rem 2rem;
+  background: rgba(255, 255, 255, 0.03);
   border-radius: 12px;
+  max-width: 550px;
   margin: 2rem auto;
-  max-width: 600px;
+  border: 1px solid rgba(255, 107, 0, 0.15);
 }
 
-.favorites-empty h2 {
+.empty-icon {
+  font-size: 3.5rem;
   margin-bottom: 1rem;
+}
+
+.favorites-empty-netflix h2 {
   font-size: 2rem;
-  color: #e50914;
+  margin: 0 0 0.75rem 0;
+  color: var(--primary, #ff6b00);
 }
 
-.favorites-empty p {
-  color: #999;
-  font-size: 1.2rem;
-  line-height: 1.6;
+.favorites-empty-netflix p {
+  color: #aaaaaa;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  margin: 0;
 }
-
-
-/* Animation for new favorites being added */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.movies-grid > * {
-  animation: fadeIn 0.3s ease-out forwards;
-}
-

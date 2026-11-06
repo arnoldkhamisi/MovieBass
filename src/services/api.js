@@ -1,8 +1,8 @@
-const API_KEY = import.meta.env.VITE_API_KEY;
+const API_KEY = (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.VITE_API_KEY) ? import.meta.env.VITE_API_KEY : "c45a857c193f6302f2b5061c3b85e743";
 const BASE_URL = "https://api.themoviedb.org/3";
-const JUSTWATCH_API_KEY = import.meta.env.VITE_JUSTWATCH_API_KEY;
+const JUSTWATCH_API_KEY = typeof import.meta !== 'undefined' && import.meta.env ? import.meta.env.VITE_JUSTWATCH_API_KEY : "";
 const JUSTWATCH_BASE_URL = "https://apis.justwatch.com/content"; // Note: JustWatch doesn't require API key for basic usage
-const YOUTUBE_API_KEY = import.meta.env.VITE_YOUTUBE_API_KEY;
+const YOUTUBE_API_KEY = typeof import.meta !== 'undefined' && import.meta.env ? import.meta.env.VITE_YOUTUBE_API_KEY : "";
 
 export const getPopularMovies = async () => {
   try {
@@ -238,5 +238,41 @@ export const getTVSeasonDetails = async (tvId, seasonNumber) => {
   } catch (error) {
     console.error('Error fetching season details:', error);
     throw error;
+  }
+};
+
+export const getTVVideos = async (tvId) => {
+  try {
+    const response = await fetch(`${BASE_URL}/tv/${tvId}/videos?api_key=${API_KEY}`);
+    if (!response.ok) throw new Error('Failed to fetch TV videos');
+    const data = await response.json();
+    return data.results;
+  } catch (error) {
+    console.error('Error fetching TV videos:', error);
+    return [];
+  }
+};
+
+export const getTVCredits = async (tvId) => {
+  try {
+    const response = await fetch(`${BASE_URL}/tv/${tvId}/credits?api_key=${API_KEY}`);
+    if (!response.ok) throw new Error('Failed to fetch TV credits');
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching TV credits:', error);
+    return { cast: [], crew: [] };
+  }
+};
+
+export const getTVRecommendations = async (tvId) => {
+  try {
+    const response = await fetch(`${BASE_URL}/tv/${tvId}/recommendations?api_key=${API_KEY}`);
+    if (!response.ok) throw new Error('Failed to fetch TV recommendations');
+    const data = await response.json();
+    return data.results;
+  } catch (error) {
+    console.error('Error fetching TV recommendations:', error);
+    return [];
   }
 };

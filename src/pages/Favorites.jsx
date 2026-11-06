@@ -1,27 +1,43 @@
+import { useNavigate } from "react-router-dom";
 import "../css/Favorites.css";
 import { useMovieContext } from "../contexts/MovieContext";
 import MovieCard from "../components/MovieCard";
 
 function Favorites() {
   const { favorites } = useMovieContext();
-
-  if (favorites.length > 0) {
-    return (
-      <div className="favorites">
-        <h2>Your Favorites</h2>
-        <div className="movies-grid">
-          {favorites.map((movie) => (
-            <MovieCard movie={movie} key={movie.id} />
-          ))}
-        </div>
-      </div>
-    );
-  }
+  const navigate = useNavigate();
 
   return (
-    <div className="favorites-empty">
-      <h2>No Favorite Movies Yet</h2>
-      <p>Start adding movies to your favorites and they will appear here!</p>
+    <div className="netflix-favorites-page">
+      <div className="netflix-section-container">
+        <h1 className="favorites-heading">My List</h1>
+        <p className="favorites-subheading">
+          Titles you've saved to watch anytime.
+        </p>
+
+        {favorites && favorites.length > 0 ? (
+          <div className="movies-grid">
+            {favorites.map((movie) => (
+              <MovieCard movie={movie} key={movie.id} />
+            ))}
+          </div>
+        ) : (
+          <div className="favorites-empty-netflix">
+            <div className="empty-icon">📺</div>
+            <h2>Your list is empty</h2>
+            <p>
+              Explore popular movies and TV series, and click "+ My List" or the heart icon to save titles here.
+            </p>
+            <button
+              onClick={() => navigate("/")}
+              className="netflix-btn-play"
+              style={{ marginTop: "1.5rem" }}
+            >
+              Explore Titles
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

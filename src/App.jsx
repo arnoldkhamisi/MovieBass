@@ -29,6 +29,8 @@ function App() {
             {/* Legacy route */}
             <Route path="/watch-movie/:id" element={<WatchMovie />} />
             <Route path="/watch-movie/tv/:id/:season/:episode" element={<WatchMovie />} />
+            {/* Fallback route */}
+            <Route path="*" element={<Home />} />
           </Routes>
         </Suspense>
       </main>
